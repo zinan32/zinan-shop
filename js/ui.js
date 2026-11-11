@@ -25,7 +25,10 @@ function money(v) {
   return Z.CURRENCY + n.toLocaleString('en-US', { maximumFractionDigits: 2 });
 }
 
-function safeImg(url) { return typeof url === 'string' && /^https:\/\//i.test(url) ? url : ''; }
+function safeImg(url) {
+  // allowed: https links, or files in this site's img/ folder
+  return typeof url === 'string' && /^(https:\/\/|img\/[a-z0-9_-]+\.(webp|jpg|png)$)/i.test(url) ? url : '';
+}
 
 function photo(url, alt, cls) {
   const src = safeImg(url);
