@@ -150,3 +150,20 @@ section { padding: 40px 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- SECTION 12: CHECKOUT FORM + CONFIRMATION ---------- */
+.checkout-grid { display: grid; gap: 28px; padding: 8px 0 40px; }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-weight: 600; margin-bottom: 6px; }
+.input { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--field); border-radius: 12px; background: var(--white); color: var(--ink); font: 400 16px var(--body); }
+textarea.input { resize: vertical; }
+.input[aria-invalid="true"] { border: 2px solid var(--ink); }
+.field-err, .form-status { font-size: 13px; font-weight: 600; margin: 6px 0 0; }
+.field-err:empty, .form-status:empty { display: none; }
+.form-status { margin: 0 0 12px; font-size: 14px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.note-box { background: var(--sand); border-radius: 12px; padding: 14px 16px; margin: 4px 0 16px; font-weight: 500; }
+.order-no { font: 800 40px var(--head); letter-spacing: -0.02em; margin: 0 0 16px; }
+.confirm { padding: 40px 0; max-width: 560px; }
+.confirm .btn { margin-top: 12px; }
+@media (min-width: 760px) { .checkout-grid { grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; } }
