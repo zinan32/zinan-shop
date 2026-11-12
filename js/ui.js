@@ -81,18 +81,24 @@ function updateBadge() {
   b.classList.remove('pulse'); void b.offsetWidth; b.classList.add('pulse');
 }
 
-/* ---------- SECTION 4: FOOTER ---------- */
+/* ===== SECTION 4: FOOTER · START =====
+   In js/ui.js, replace everything from the old "SECTION 4: FOOTER" comment
+   down to the line before "SECTION 5: PRODUCT CARD" with this. */
 function renderFooter() {
   const host = document.getElementById('site-footer');
   if (!host) return;
+  const real = v => v && !String(v).startsWith('['); // hides [PLACEHOLDER] lines
   host.replaceChildren(el('footer', { class: 'footer' }, el('div', { class: 'wrap' },
     el('p', { class: 'wordmark' }, Z.BRAND),
     el('p', { class: 'muted-on-dark' }, Z.TAGLINE),
     el('p', null, el('a', { href: 'mailto:' + Z.EMAIL }, Z.EMAIL)),
-    el('p', null, el('a', { href: 'https://instagram.com/' + Z.INSTAGRAM, rel: 'noopener' }, '@' + Z.INSTAGRAM)),
-    el('p', { class: 'muted-on-dark' }, Z.PHONE),
-    el('p', { class: 'small muted-on-dark' }, '© ' + new Date().getFullYear() + ' ' + Z.BUSINESS_NAME + ' · [PRIVACY AND TERMS LINKS]'))));
+    real(Z.PHONE) ? el('p', null, Z.PHONE) : null,
+    el('div', { class: 'foot-social' }, ...(Z.SOCIALS || []).map(s =>
+      el('a', { href: s.url, rel: 'noopener', target: '_blank', 'aria-label': 'Zinan on ' + s.name }, s.name))),
+    el('p', { class: 'small muted-on-dark' }, '\u00a9 ' + new Date().getFullYear() + ' ' + (real(Z.BUSINESS_NAME) ? Z.BUSINESS_NAME : Z.BRAND)))));
 }
+/* ===== SECTION 4: FOOTER · END ===== */
+
 
 /* ---------- SECTION 5: PRODUCT CARD ---------- */
 function productCard(p) {
