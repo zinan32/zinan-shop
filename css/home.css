@@ -75,3 +75,14 @@
   .block, .why { padding: 56px 0; }
 }
 /* ===== SECTION 9: TABLET + DESKTOP · END ===== */
+
+/* ===== SECTION 10: SPACING + SCROLLBAR FIXES · START =====
+   Paste at the very bottom of css/home.css */
+.hero2, #spotlight { padding: 0; }
+.hero2-text { padding-top: 20px; padding-bottom: 24px; }
+.block { padding: 28px 0; }
+.spot { padding-top: 28px; padding-bottom: 28px; }
+.tiles { scrollbar-width: none; }
+.tiles::-webkit-scrollbar { display: none; }
+.follow h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
+/* ===== SECTION 10: SPACING + SCROLLBAR FIXES · END ===== */
