@@ -81,3 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
   fillHomeText(); renderTrustCard(); renderOffer(); renderTiles(); loadProducts();
 });
 /* ===== SECTION 7: START · END ===== */
+
+/* ===== SECTION 8: THE ZINAN EXPERIENCE · START =====
+   Paste at the very bottom of js/home.js (after Section 7). */
+function renderExperience() {
+  const x = Z.EXPERIENCE;
+  if (!x) return;
+  document.getElementById('exp-eyebrow').textContent = x.EYEBROW;
+  document.getElementById('exp-title').textContent = x.TITLE;
+  document.getElementById('exp-intro').textContent = x.INTRO;
+  document.getElementById('exp-list').replaceChildren(...x.ITEMS.map((it, i) =>
+    el('li', { class: 'exp-item' },
+      el('span', { class: 'exp-num', 'aria-hidden': 'true' }, String(i + 1).padStart(2, '0')),
+      el('div', null, el('h3', null, it.title), el('p', null, it.text)))));
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.body.dataset.page === 'home2') renderExperience();
+});
+/* ===== SECTION 8: THE ZINAN EXPERIENCE · END ===== */
