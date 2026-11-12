@@ -16,7 +16,7 @@ window.ZINAN = {
   INSTAGRAM: 'zinan.bd',
   PHONE: '[PHONE / WHATSAPP]',
   BUSINESS_NAME: 'Zinan',
-  LOGO_URL: 'img/logo.svg', // later: put your logo file path here, e.g. 'img/logo.svg'
+  LOGO_URL: 'img/logo-black.svg', // later: put your logo file path here, e.g. 'img/logo.svg'
 
   /* ---------- SECTION 3: MONEY ---------- */
   CURRENCY: '৳',
