@@ -70,3 +70,38 @@ window.ZINAN = {
   MSG_EMPTY_CART: 'Your cart is empty.',
   MSG_NOT_FOUND: 'We could not find that product.'
 };
+
+/* ===== SECTION 9: CATEGORIES · START =====
+   key must match the category saved in the database */
+window.ZINAN.CATEGORIES = [
+  { key: 'handbags', label: 'Handbags', img: 'img/handbag.webp' },
+  { key: 'gadgets',  label: 'Gadgets',  img: 'img/fan.webp' },
+  { key: 'home',     label: 'Home',     img: 'img/nightlight.webp' }
+];
+/* ===== SECTION 9: CATEGORIES · END ===== */
+
+/* ===== SECTION 10: OFFER BANNER · START =====
+   Set ENABLED to true and fill in a REAL offer to show the banner on the home page. */
+window.ZINAN.OFFER = {
+  ENABLED: false,
+  EYEBROW: 'Offer',
+  TITLE: '[OFFER TITLE]',
+  TEXT: '[OFFER DETAILS]',
+  CTA: 'Shop now',
+  LINK: 'shop.html'
+};
+/* ===== SECTION 10: OFFER BANNER · END ===== */
+
+/* ===== SECTION 11: TRUST CARD + SPOTLIGHT · START ===== */
+window.ZINAN.TRUST_CARD = [
+  { icon: '\u2713', title: 'Confirmed personally', text: 'We contact you to confirm every order.' },
+  { icon: '\u09F3', title: 'Pay your way',         text: 'Cash on delivery, bKash or Nagad.' },
+  { icon: '\u2709\uFE0E', title: 'Open 24/7',      text: 'Reach us anytime by email.' }
+];
+window.ZINAN.SPOTLIGHT = {
+  ENABLED: true,
+  PRODUCT_NAME: 'Mini Portable Rechargeable Fan', // must match a product name exactly
+  EYEBROW: 'Spotlight',
+  CTA: 'View product'
+};
+/* ===== SECTION 11: TRUST CARD + SPOTLIGHT · END ===== */
