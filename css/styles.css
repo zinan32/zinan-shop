@@ -191,3 +191,10 @@ h2 { font-size: 20px; line-height: 1.2; }
   .page-title { font-size: 32px; }
 }
 /* ===== SECTION 13: REFINED COLORS + TYPE SIZES · END ===== */
+
+/* ===== SECTION 14: PHOTO BLENDING · START =====
+   Paste at the very bottom of css/styles.css (below Section 13).
+   White photo backgrounds take the soft card color, so all
+   product photos sit evenly on the page. */
+.card-img img, .tile-img img, .spot-img img, .gallery img, .line-img img { mix-blend-mode: multiply; }
+/* ===== SECTION 14: PHOTO BLENDING · END ===== */
