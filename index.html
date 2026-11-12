@@ -1,51 +1,43 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Zinan: Quality You Can Trust. Handbags, gadgets and home essentials in Bangladesh."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"><title>Zinan · Quality You Can Trust</title></head>
-<body data-page="home">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Zinan: Quality You Can Trust. Handbags, gadgets and home essentials in Bangladesh."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/home.css"><title>Zinan · Quality You Can Trust</title></head>
+<body data-page="home2">
 <div id="site-header"></div>
 <main>
-  <!-- SECTION: HERO -->
-  <section class="hero"><div class="wrap hero-inner">
-    <div>
+  <!-- ===== SECTION: HERO · START ===== -->
+  <section class="hero2">
+    <div class="hero2-img"><img src="img/hero.webp" width="1000" height="1000" fetchpriority="high" alt="A warm lamp glowing on a wooden bedside table"></div>
+    <div class="hero2-text wrap">
       <p class="eyebrow" data-cfg="HERO_EYEBROW"></p>
       <h1 data-cfg="HERO_TITLE"></h1>
       <p class="hero-sub" data-cfg="HERO_SUB"></p>
       <a class="btn" href="shop.html" data-cfg="HERO_CTA"></a>
       <ul class="trust-row" id="trust-strip"></ul>
     </div>
-    <div class="hero-photo"><div class="ph" role="img" aria-label="Hero photo placeholder" data-cfg="HERO_PHOTO_NOTE"></div></div>
-  </div></section>
+  </section>
+  <!-- ===== SECTION: HERO · END ===== -->
 
-  <!-- SECTION: FEATURED PRODUCTS -->
-  <section><div class="wrap">
-    <h2>Featured</h2>
+  <!-- ===== SECTION: FEATURED · START ===== -->
+  <section class="block"><div class="wrap">
+    <div class="sec-head"><h2>Featured</h2><a class="more" href="shop.html">View all</a></div>
     <div class="grid" id="featured"><p class="notice">Loading…</p></div>
   </div></section>
+  <!-- ===== SECTION: FEATURED · END ===== -->
 
-  <!-- SECTION: WHY ZINAN (dark) -->
-  <section class="band-dark on-dark"><div class="wrap">
+  <!-- ===== SECTION: WHY ZINAN · START ===== -->
+  <section class="why band-dark on-dark"><div class="wrap">
     <h2 data-cfg="WHY_TITLE"></h2>
     <p class="muted-on-dark" data-cfg="WHY_INTRO"></p>
     <div class="values" id="values"></div>
   </div></section>
+  <!-- ===== SECTION: WHY ZINAN · END ===== -->
 
-  <!-- SECTION: COMMUNITY REVIEWS (real reviews only) -->
-  <section><div class="wrap">
-    <h2 data-cfg="REVIEWS_TITLE"></h2>
-    <div class="review-box" data-cfg="REVIEWS_NOTE"></div>
-  </div></section>
-
-  <!-- SECTION: TAG US -->
-  <section><div class="wrap">
-    <h2 data-cfg="TAGUS_TITLE"></h2>
-    <div class="tag-row" id="tags"></div>
-  </div></section>
-
-  <!-- SECTION: FOLLOW (sand band) -->
-  <section class="band-sand"><div class="wrap">
+  <!-- ===== SECTION: FOLLOW · START ===== -->
+  <section class="follow band-sand"><div class="wrap">
     <h2 data-cfg="FOLLOW_TITLE"></h2>
     <p data-cfg="FOLLOW_TEXT"></p>
     <a class="btn" id="follow-link" rel="noopener" href="#"></a>
   </div></section>
+  <!-- ===== SECTION: FOLLOW · END ===== -->
 </main>
 <div id="site-footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
@@ -53,4 +45,5 @@
 <script src="js/data.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/pages.js"></script>
+<script src="js/home.js"></script>
 </body></html>
