@@ -86,3 +86,18 @@
 .tiles::-webkit-scrollbar { display: none; }
 .follow h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; }
 /* ===== SECTION 10: SPACING + SCROLLBAR FIXES · END ===== */
+
+/* ===== SECTION 11: COMPACT WHY + SOCIAL BUTTONS · START =====
+   Paste at the very bottom of css/home.css (below Section 10). */
+.why { padding: 28px 0; }
+.why h2 { margin-bottom: 4px; }
+.why .muted-on-dark { font-size: 14px; margin-bottom: 0; }
+.why .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+.why .values h3 { font-size: 14px; }
+.why .values p { font-size: 12.5px; line-height: 1.45; }
+.follow { padding: 24px 0; }
+.follow h2 { margin-bottom: 12px; }
+.socials { display: flex; flex-wrap: wrap; gap: 8px; }
+.social { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; font-size: 14px; text-decoration: none; }
+.tiles { padding: 6px 2px 20px; }
+/* ===== SECTION 11: COMPACT WHY + SOCIAL BUTTONS · END ===== */
