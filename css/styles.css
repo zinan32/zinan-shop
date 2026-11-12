@@ -167,3 +167,24 @@ textarea.input { resize: vertical; }
 .confirm { padding: 40px 0; max-width: 560px; }
 .confirm .btn { margin-top: 12px; }
 @media (min-width: 760px) { .checkout-grid { grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; } }
+
+/* ===== SECTION 13: REFINED COLORS + TYPE SIZES · START =====
+   Paste this at the very bottom of css/styles.css.
+   It overrides the earlier values, so nothing above needs editing. */
+:root { --bg: #FDFCFA; --card: #F3F1ED; --border: #E8E4DD; --muted: #595959; }
+h1 { font-size: 28px; line-height: 1.15; }
+h2 { font-size: 20px; line-height: 1.2; }
+.hero-sub { font-size: 15px; }
+.page-title { font-size: 26px; }
+.card-name { font-size: 14px; }
+.card-note { font-size: 12.5px; }
+.price { font-size: 14px; }
+.price.big { font-size: 20px; }
+.order-no { font-size: 32px; }
+@media (min-width: 760px) {
+  h1 { font-size: 40px; }
+  h2 { font-size: 26px; }
+  .page-title { font-size: 32px; }
+}
+/* ===== SECTION 13: REFINED COLORS + TYPE SIZES · END ===== */
+
