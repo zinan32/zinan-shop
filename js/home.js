@@ -7,14 +7,16 @@
 const HOME = { FEATURED_COUNT: 4 };
 /* ===== SECTION 1: HOME SETTINGS · END ===== */
 
-/* ===== SECTION 2: FILL TEXT · START ===== */
+/* ===== SECTION 2: FILL TEXT · START =====
+   In js/home.js, replace the whole old Section 2 (START line to END line) with this. */
 function fillHomeText() {
   document.querySelectorAll('[data-cfg]').forEach(n => { n.textContent = Z[n.dataset.cfg] || ''; });
+
   document.getElementById('values').replaceChildren(...Z.WHY_VALUES.map(v =>
     el('div', null, el('h3', null, v.title), el('p', null, v.text))));
-  const f = document.getElementById('follow-link');
-  f.href = 'https://instagram.com/' + Z.INSTAGRAM;
-  f.textContent = 'Follow @' + Z.INSTAGRAM;
+
+  document.getElementById('socials').replaceChildren(...(Z.SOCIALS || []).map(s =>
+    el('a', { class: 'social', href: s.url, rel: 'noopener', target: '_blank', 'aria-label': 'Zinan on ' + s.name }, s.name)));
 }
 /* ===== SECTION 2: FILL TEXT · END ===== */
 
