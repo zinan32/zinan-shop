@@ -7,7 +7,7 @@ const Z = window.ZINAN;
 const sb = window.supabase.createClient(Z.SUPABASE_URL, Z.SUPABASE_KEY);
 
 /* ---------- SECTION 2: PRODUCT QUERIES ---------- */
-const PRODUCT_COLS = 'id,name,description,price,image_url';
+const PRODUCT_COLS = 'id,name,description,price,image_url,category';
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 async function getProducts() {
