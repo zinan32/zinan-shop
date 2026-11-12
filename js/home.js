@@ -12,9 +12,6 @@ const HOME = { FEATURED_COUNT: 4 };
 function fillHomeText() {
   document.querySelectorAll('[data-cfg]').forEach(n => { n.textContent = Z[n.dataset.cfg] || ''; });
 
-  document.getElementById('values').replaceChildren(...Z.WHY_VALUES.map(v =>
-    el('div', null, el('h3', null, v.title), el('p', null, v.text))));
-
   document.getElementById('socials').replaceChildren(...(Z.SOCIALS || []).map(s =>
     el('a', { class: 'social', href: s.url, rel: 'noopener', target: '_blank', 'aria-label': 'Zinan on ' + s.name }, s.name)));
 }
