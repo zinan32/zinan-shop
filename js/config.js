@@ -115,3 +115,17 @@ window.ZINAN.SOCIALS = [
   { name: 'TikTok',    url: 'https://www.tiktok.com/@zinan.bd' }
 ];
 /* ===== SECTION 12: SOCIAL LINKS · END ===== */
+
+/* ===== SECTION 13: THE ZINAN EXPERIENCE (replaces "Why Zinan") · START =====
+   Paste at the very bottom of js/config.js (after Section 12). */
+window.ZINAN.EXPERIENCE = {
+  EYEBROW: 'The Zinan experience',
+  TITLE: 'More than just a purchase.',
+  INTRO: 'We believe good shopping is about finding the right things, knowing what to expect, and feeling good about every order.',
+  ITEMS: [
+    { title: 'Thoughtfully Selected', text: 'Every product is selected with an eye for style, usefulness and everyday value.' },
+    { title: 'Clear & Honest',        text: 'Prices are shown openly. No unnecessary surprises.' },
+    { title: 'A Personal Touch',      text: 'Every order is personally confirmed. We\u2019re here to help make your shopping easier.' }
+  ]
+};
+/* ===== SECTION 13: THE ZINAN EXPERIENCE · END ===== */
