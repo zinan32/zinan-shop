@@ -101,3 +101,25 @@
 .social { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--ink); color: var(--ink); font-weight: 600; font-size: 14px; text-decoration: none; }
 .tiles { padding: 6px 2px 20px; }
 /* ===== SECTION 11: COMPACT WHY + SOCIAL BUTTONS · END ===== */
+
+/* ===== SECTION 12: THE ZINAN EXPERIENCE · START =====
+   Paste at the very bottom of css/home.css (below Section 11). */
+:root { --beige: #F3EDE4; --beige-line: #D8CFC2; --taupe: #7A6C58; }
+.experience { background: var(--beige); padding: 56px 0; }
+.exp .eyebrow { margin-bottom: 12px; }
+.exp h2 { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 14px; }
+.exp-intro { color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+.exp-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--beige-line); }
+.exp-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--beige-line); }
+.exp-num { flex: none; min-width: 40px; font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--taupe); }
+.exp-item h3 { font-size: 16px; margin: 0 0 6px; }
+.exp-item p { margin: 0; font-size: 14px; color: var(--muted); }
+@media (min-width: 760px) {
+  .experience { padding: 80px 0; }
+  .exp { display: grid; grid-template-columns: 1fr 1.2fr; column-gap: 64px; align-content: start; }
+  .exp > :not(.exp-list) { grid-column: 1; }
+  .exp-list { grid-column: 2; grid-row: 1 / span 3; }
+  .exp h2 { font-size: 40px; }
+  .exp-intro { margin-bottom: 0; }
+}
+/* ===== SECTION 12: THE ZINAN EXPERIENCE · END ===== */
