@@ -105,3 +105,13 @@ window.ZINAN.SPOTLIGHT = {
   CTA: 'View product'
 };
 /* ===== SECTION 11: TRUST CARD + SPOTLIGHT · END ===== */
+
+/* ===== SECTION 12: SOCIAL LINKS · START =====
+   Paste at the very bottom of js/config.js (after Section 11).
+   Add or remove lines to change the buttons on the site. */
+window.ZINAN.SOCIALS = [
+  { name: 'Instagram', url: 'https://instagram.com/zinan.bd' },
+  { name: 'Facebook',  url: 'https://www.facebook.com/share/19TRYBdney/' },
+  { name: 'TikTok',    url: 'https://www.tiktok.com/@zinan.bd' }
+];
+/* ===== SECTION 12: SOCIAL LINKS · END ===== */
