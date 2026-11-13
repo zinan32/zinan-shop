@@ -129,3 +129,21 @@ window.ZINAN.EXPERIENCE = {
   ]
 };
 /* ===== SECTION 13: THE ZINAN EXPERIENCE · END ===== */
+
+/* ===== SECTION 14: CUSTOMER REVIEWS · START =====
+   Paste at the very bottom of js/config.js (after Section 13).
+   Add ONLY real reviews, with the customer's permission.
+   While REVIEWS is empty, the whole section stays hidden. */
+window.ZINAN.REVIEWS_HEADING = 'What our customers say';
+window.ZINAN.REVIEWS = [
+  // { name: 'Customer name', text: 'Their real words', rating: 5, source: 'Facebook' },
+  // rating (1 to 5) and source are optional
+];
+// Shown only when you open the site with ?preview-reviews at the end of the address.
+window.ZINAN.REVIEWS_SAMPLE = [
+  { name: 'Roksana Khatun', text: 'I love their handbags. I bought a few of them. They are stylish, long lasting and fit for my needs. Being a teacher, I need huge space, their large size bags ensure that.', rating: 5, source: 'In Person' },
+  { name: 'Nishat Tahsin', text: 'Their handbags are great. Fit for every occasion. I bought a few. I attend family functions, social gatherings, job - one for each.', rating: 5, source: 'In Person' },
+  { name: 'Sadhin', text: 'The portable fan is really nice. With it’s 1.5 hours battery backup gives ease in the heat', rating: 4, source: 'Messages' },
+  { name: '[NAME]', text: 'Sample card four.' }
+];
+/* ===== SECTION 14: CUSTOMER REVIEWS · END ===== */
