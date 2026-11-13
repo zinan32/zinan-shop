@@ -101,7 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ===== SECTION 8: THE ZINAN EXPERIENCE · END ===== */
 
 /* ===== SECTION 9: REVIEWS CAROUSEL · START =====
-   Paste at the very bottom of js/home.js (after Section 8). */
+   In js/home.js, replace the whole old Section 9 (START line to END line) with this. */
+const RV_ICON = {
+  prev: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+  next: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+};
+
 function reviewCard(r) {
   const rating = Number.isInteger(r.rating) && r.rating >= 1 && r.rating <= 5 ? r.rating : 0;
   return el('figure', { class: 'rv-card' },
@@ -124,22 +129,34 @@ function renderReviews() {
   if (!list.length) return; // no real reviews yet: section stays hidden
 
   const track = el('div', { class: 'rv-track', tabindex: '0', role: 'region', 'aria-label': 'Customer reviews' }, list.map(reviewCard));
+  const calm = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const step = dir => {
     const card = track.querySelector('.rv-card');
     const w = card ? card.getBoundingClientRect().width + 16 : 300;
-    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    track.scrollBy({ left: dir * w, behavior: calm ? 'auto' : 'smooth' });
+    track.scrollBy({ left: dir * w, behavior: calm() ? 'auto' : 'smooth' });
   };
-  const arrow = (dir, label, glyph) =>
-    el('button', { type: 'button', class: 'rv-btn', 'aria-label': label, onclick: () => step(dir) }, glyph);
+  const arrow = (cls, dir, label, icon) => {
+    const b = el('button', { type: 'button', class: 'rv-btn ' + cls, 'aria-label': label, onclick: () => step(dir) });
+    b.innerHTML = icon; // fixed icon markup above, no user text
+    return b;
+  };
+  const prev = arrow('rv-prev', -1, 'Previous review', RV_ICON.prev);
+  const next = arrow('rv-next', 1, 'Next review', RV_ICON.next);
 
   host.replaceChildren(el('div', { class: 'wrap' },
-    el('div', { class: 'rv-head' },
-      el('h2', null, Z.REVIEWS_HEADING || 'What our customers say'),
-      el('div', { class: 'rv-arrows' }, arrow(-1, 'Previous reviews', '\u2190'), arrow(1, 'Next reviews', '\u2192'))),
-    track,
+    el('h2', null, Z.REVIEWS_HEADING || 'What our customers say'),
+    el('div', { class: 'rv-wrap' }, prev, track, next),
     !real.length ? el('p', { class: 'small' }, 'Preview only: these are sample cards, not real reviews.') : null));
   host.hidden = false;
+
+  const sync = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    prev.hidden = next.hidden = prev.disabled && next.disabled; // only one card: no arrows
+  };
+  track.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  requestAnimationFrame(sync);
 }
 document.addEventListener('DOMContentLoaded', () => {
   if (document.body.dataset.page === 'home2') renderReviews();
