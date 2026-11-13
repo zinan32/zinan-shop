@@ -99,3 +99,49 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.body.dataset.page === 'home2') renderExperience();
 });
 /* ===== SECTION 8: THE ZINAN EXPERIENCE · END ===== */
+
+/* ===== SECTION 9: REVIEWS CAROUSEL · START =====
+   Paste at the very bottom of js/home.js (after Section 8). */
+function reviewCard(r) {
+  const rating = Number.isInteger(r.rating) && r.rating >= 1 && r.rating <= 5 ? r.rating : 0;
+  return el('figure', { class: 'rv-card' },
+    el('span', { class: 'rv-quote', 'aria-hidden': 'true' }, '\u201C'),
+    el('blockquote', null, el('p', null, r.text)),
+    el('figcaption', { class: 'rv-who' },
+      el('span', { class: 'rv-avatar', 'aria-hidden': 'true' }, String(r.name).trim().charAt(0).toUpperCase()),
+      el('div', null,
+        el('strong', null, r.name),
+        r.source ? el('span', { class: 'rv-src' }, r.source) : null,
+        rating ? el('span', { class: 'stars', role: 'img', 'aria-label': rating + ' out of 5' }, '\u2605'.repeat(rating) + '\u2606'.repeat(5 - rating)) : null)));
+}
+
+function renderReviews() {
+  const host = document.getElementById('reviews');
+  if (!host) return;
+  const real = Array.isArray(Z.REVIEWS) ? Z.REVIEWS.filter(r => r && r.name && r.text) : [];
+  const preview = new URLSearchParams(location.search).has('preview-reviews');
+  const list = real.length ? real : (preview ? (Z.REVIEWS_SAMPLE || []) : []);
+  if (!list.length) return; // no real reviews yet: section stays hidden
+
+  const track = el('div', { class: 'rv-track', tabindex: '0', role: 'region', 'aria-label': 'Customer reviews' }, list.map(reviewCard));
+  const step = dir => {
+    const card = track.querySelector('.rv-card');
+    const w = card ? card.getBoundingClientRect().width + 16 : 300;
+    const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    track.scrollBy({ left: dir * w, behavior: calm ? 'auto' : 'smooth' });
+  };
+  const arrow = (dir, label, glyph) =>
+    el('button', { type: 'button', class: 'rv-btn', 'aria-label': label, onclick: () => step(dir) }, glyph);
+
+  host.replaceChildren(el('div', { class: 'wrap' },
+    el('div', { class: 'rv-head' },
+      el('h2', null, Z.REVIEWS_HEADING || 'What our customers say'),
+      el('div', { class: 'rv-arrows' }, arrow(-1, 'Previous reviews', '\u2190'), arrow(1, 'Next reviews', '\u2192'))),
+    track,
+    !real.length ? el('p', { class: 'small' }, 'Preview only: these are sample cards, not real reviews.') : null));
+  host.hidden = false;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.body.dataset.page === 'home2') renderReviews();
+});
+/* ===== SECTION 9: REVIEWS CAROUSEL · END ===== */
