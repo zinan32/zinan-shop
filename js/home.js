@@ -117,7 +117,9 @@ function reviewCard(r) {
       el('div', null,
         el('strong', null, r.name),
         r.source ? el('span', { class: 'rv-src' }, r.source) : null,
-        rating ? el('span', { class: 'stars', role: 'img', 'aria-label': rating + ' out of 5' }, '\u2605'.repeat(rating) + '\u2606'.repeat(5 - rating)) : null)));
+        rating ? el('span', { class: 'rv-rate', role: 'img', 'aria-label': 'Rated ' + rating + ' out of 5' },
+          el('span', { class: 'stars', 'aria-hidden': 'true' }, '\u2605'.repeat(rating) + '\u2606'.repeat(5 - rating)),
+          el('span', { class: 'rv-num', 'aria-hidden': 'true' }, rating + '/5')) : null)));
 }
 
 function renderReviews() {
