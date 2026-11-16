@@ -249,3 +249,9 @@ h2 { font-size: 20px; line-height: 1.2; }
   .foot-brand, .foot-contact { grid-column: auto; }
 }
 /* ===== SECTION 16: NEWSLETTER STRIP + FOOTER · END ===== */
+
+/* ===== SECTION 17: FOOTER POLISH · START =====
+   Paste at the very bottom of css/styles.css (below Section 16). */
+.nl .eyebrow { color: var(--ink); }               /* grey on sand was too faint to read */
+.nl-text, .foot-about { text-wrap: balance; }     /* no lonely last word on its own line */
+/* ===== SECTION 17: FOOTER POLISH · END ===== */
