@@ -161,3 +161,14 @@
   .rv-next { right: -22px; }
 }
 /* ===== SECTION 13: REVIEWS CAROUSEL · END ===== */
+
+/* ===== SECTION 14: DESKTOP LAYOUT FIXES · START =====
+   Paste at the very bottom of css/home.css (below Section 13).
+   Phones are not affected. */
+@media (min-width: 760px) {
+  .hero2 { padding: 28px var(--pad) 0; }   /* brings back the side padding Section 10 removed */
+  .hero2-text { padding: 0; }
+  .trustcard { margin-top: 32px; }         /* gap between the hero photo and the trust card */
+  .block { padding: 40px 0; }
+}
+/* ===== SECTION 14: DESKTOP LAYOUT FIXES · END ===== */
