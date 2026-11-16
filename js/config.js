@@ -144,3 +144,39 @@ window.ZINAN.REVIEWS = [
   { name: '[NAME]', text: 'Sample card four.' }
 ];
 /* ===== SECTION 14: CUSTOMER REVIEWS · END ===== */
+
+/* ===== SECTION 15: FOOTER + NEWSLETTER · START =====
+   Paste at the very bottom of js/config.js (after Section 14).
+   A link whose href starts with [ stays hidden until you replace it with a real address. */
+window.ZINAN.FOOTER = {
+  LOGO_WHITE_URL: 'img/logo-white.svg', // white logo for the dark footer; text is used if the file is missing
+  ABOUT: 'Quality products from an online shop you can trust.',
+  HOURS: 'Orders accepted 24/7',
+  NEWSLETTER: {
+    EYEBROW: 'Stay in the loop',
+    TITLE: 'Get exclusive drops & offers',
+    TEXT: 'Be the first to know about new arrivals and special offers.',
+    LABEL: 'Your email',
+    BUTTON: 'Subscribe',
+    // Not connected to a database yet, so the site says honestly that nothing is saved.
+    MSG: 'Sign-ups open soon. Your email was not saved.'
+  },
+  COLUMNS: [
+    { title: 'Shop', links: [
+      { label: 'All products', href: 'shop.html' },
+      { label: 'Handbags',     href: 'shop.html?cat=handbags' },
+      { label: 'Gadgets',      href: 'shop.html?cat=gadgets' },
+      { label: 'Home',         href: 'shop.html?cat=home' }
+    ] },
+    { title: 'Customer care', links: [
+      { label: 'Contact us',         href: 'mailto:' + window.ZINAN.EMAIL },
+      { label: 'Your cart',          href: 'cart.html' },
+      { label: 'Delivery & returns', href: '[PAGE LINK]' }
+    ] }
+  ],
+  LEGAL: [
+    { label: 'Privacy policy', href: '[PAGE LINK]' },
+    { label: 'Terms',          href: '[PAGE LINK]' }
+  ]
+};
+/* ===== SECTION 15: FOOTER + NEWSLETTER · END ===== */
