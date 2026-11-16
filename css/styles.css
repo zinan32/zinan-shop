@@ -255,3 +255,19 @@ h2 { font-size: 20px; line-height: 1.2; }
 .nl .eyebrow { color: var(--ink); }               /* grey on sand was too faint to read */
 .nl-text, .foot-about { text-wrap: balance; }     /* no lonely last word on its own line */
 /* ===== SECTION 17: FOOTER POLISH · END ===== */
+
+/* ===== SECTION 18: FOOTER COMPACT ON PHONES · START =====
+   Paste at the very bottom of css/styles.css (below Section 17).
+   Only affects screens narrower than 760px. Desktop stays as it is. */
+@media (max-width: 759px) {
+  .nl-strip { padding: 24px 0; }
+  .sitefoot { padding: 28px 0 16px; }
+  .foot-grid { gap: 16px; }
+  .foot-about { max-width: none; margin: 8px 0 10px; font-size: 14px; }
+  .foot-handle { margin: 0 0 12px; font-size: 14px; }
+  .foot-col h3 { margin: 0 0 2px; }
+  .foot-col a, .foot-col li > span { min-height: 36px; font-size: 15px; }
+  .foot-contact ul { display: flex; flex-wrap: wrap; gap: 0 20px; }
+  .foot-bottom { margin-top: 12px; padding-top: 12px; }
+}
+/* ===== SECTION 18: FOOTER COMPACT ON PHONES · END ===== */
