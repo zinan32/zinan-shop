@@ -169,11 +169,11 @@ window.ZINAN.FOOTER = {
       { label: 'Handbags',           href: 'shop.html?cat=handbags' },
       { label: 'Gadgets',            href: 'shop.html?cat=gadgets' },
       { label: 'Home',               href: 'shop.html?cat=home' },
-      { label: 'New drops & offers', href: 'index.html#join' }   // jumps to the sign-up strip on the home page
     ] },
     { title: 'Customer care', links: [
       { label: 'Contact us',         href: 'mailto:' + window.ZINAN.EMAIL },
       { label: 'Your cart',          href: 'cart.html' },
+      { label: 'New drops & offers', href: 'index.html#join' },   // jumps to the sign-up strip on the home page
       { label: 'Delivery & returns', href: '[PAGE LINK]' }
     ] }
   ],
