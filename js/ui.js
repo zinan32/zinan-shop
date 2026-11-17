@@ -83,7 +83,7 @@ function updateBadge() {
 
 /* ===== SECTION 4: FOOTER + NEWSLETTER · START =====
    In js/ui.js, replace the whole old Section 4 with this: from its START line
-   (or the old "SECTION 4: FOOTER" comment) down to the line before "SECTION 5: PRODUCT CARD". */
+   down to its END line (the line just before "SECTION 5: PRODUCT CARD"). */
 const SOCIAL_ICONS = {
   instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
   facebook:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>',
@@ -103,10 +103,11 @@ function socialIcons() {
 }
 
 function buildNewsletter(n) {
-  const input = el('input', { id: 'nl-email', type: 'email', class: 'input', autocomplete: 'email', maxlength: 120, placeholder: 'name@example.com' });
+  // no visible label; the field keeps an invisible one (aria-label) for screen readers
+  const input = el('input', { id: 'nl-email', type: 'email', class: 'input', autocomplete: 'email', maxlength: 120,
+                              placeholder: n.PLACEHOLDER, 'aria-label': n.PLACEHOLDER });
   const status = el('p', { class: 'nl-status', role: 'status' });
   const form = el('form', { class: 'nl-form', novalidate: true },
-    el('label', { for: 'nl-email' }, n.LABEL),
     el('div', { class: 'nl-row' }, input, el('button', { class: 'btn', type: 'submit' }, n.BUTTON)),
     status);
   form.addEventListener('submit', e => {
@@ -114,7 +115,7 @@ function buildNewsletter(n) {
     // Nothing is sent or stored yet. Connect this to the database later.
     status.textContent = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()) ? n.MSG : 'Please enter a valid email address.';
   });
-  return el('section', { class: 'nl-strip' }, el('div', { class: 'wrap nl' },
+  return el('section', { class: 'nl-strip', id: 'join' }, el('div', { class: 'wrap nl' },
     el('div', null, el('p', { class: 'eyebrow' }, n.EYEBROW), el('h2', null, n.TITLE), el('p', { class: 'nl-text' }, n.TEXT)),
     form));
 }
@@ -123,6 +124,8 @@ function renderFooter() {
   const host = document.getElementById('site-footer');
   if (!host) return;
   const F = Z.FOOTER || {};
+  const n = F.NEWSLETTER;
+  const showStrip = n && (n.SHOW_ON || ['home2']).includes(document.body.dataset.page);
   const ig = (Z.SOCIALS || []).find(s => String(s.name).toLowerCase() === 'instagram');
 
   let logo;
@@ -141,7 +144,7 @@ function renderFooter() {
   const name = realValue(Z.BUSINESS_NAME) ? Z.BUSINESS_NAME : Z.BRAND;
 
   host.replaceChildren(
-    F.NEWSLETTER ? buildNewsletter(F.NEWSLETTER) : null,
+    showStrip ? buildNewsletter(n) : null,
     el('footer', { class: 'footer sitefoot' }, el('div', { class: 'wrap' },
       el('div', { class: 'foot-grid' },
         el('div', { class: 'foot-brand' },
@@ -161,8 +164,6 @@ function renderFooter() {
         legal.length ? el('span', { class: 'foot-legal' }, ...legal) : null))));
 }
 /* ===== SECTION 4: FOOTER + NEWSLETTER · END ===== */
-
-
 
 /* ---------- SECTION 5: PRODUCT CARD ---------- */
 function productCard(p) {
