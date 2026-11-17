@@ -271,3 +271,19 @@ h2 { font-size: 20px; line-height: 1.2; }
   .foot-bottom { margin-top: 12px; padding-top: 12px; }
 }
 /* ===== SECTION 18: FOOTER COMPACT ON PHONES · END ===== */
+
+/* ===== SECTION 19: SLIM SIGN-UP STRIP ON PHONES · START =====
+   Paste at the very bottom of css/styles.css (below Section 18).
+   Only affects screens narrower than 760px. */
+html { scroll-padding-top: 72px; }   /* the "New drops" link lands below the sticky header */
+@media (max-width: 759px) {
+  .nl-strip { padding: 18px 0; }
+  .nl { gap: 12px; }
+  .nl .eyebrow { display: none; }
+  .nl h2 { font-size: 18px; margin: 0 0 2px; }
+  .nl-text { font-size: 13.5px; line-height: 1.45; }
+  .nl-row .input, .nl-row .btn { min-height: 44px; }
+  .nl-row .btn { min-width: 84px; padding: 0 20px; }
+  .nl-status { margin-top: 6px; }
+}
+/* ===== SECTION 19: SLIM SIGN-UP STRIP ON PHONES · END ===== */
