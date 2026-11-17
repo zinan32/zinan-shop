@@ -145,28 +145,31 @@ window.ZINAN.REVIEWS = [
 ];
 /* ===== SECTION 14: CUSTOMER REVIEWS · END ===== */
 
+
 /* ===== SECTION 15: FOOTER + NEWSLETTER · START =====
-   Paste at the very bottom of js/config.js (after Section 14).
+   In js/config.js, replace the whole old Section 15 (START line to END line) with this.
    A link whose href starts with [ stays hidden until you replace it with a real address. */
 window.ZINAN.FOOTER = {
   LOGO_WHITE_URL: 'img/logo-white.svg', // white logo for the dark footer; text is used if the file is missing
   ABOUT: 'Quality products from an online shop you can trust.',
   HOURS: 'Orders accepted 24/7',
   NEWSLETTER: {
+    SHOW_ON: ['home2'],                 // pages that show the sign-up strip ('home2' = home page)
     EYEBROW: 'Stay in the loop',
     TITLE: 'Get exclusive drops & offers',
-    TEXT: 'Be the first to know about new arrivals and special offers.',
-    LABEL: 'Your email',
-    BUTTON: 'Subscribe',
+    TEXT: 'Join our community. Be the first to know about new arrivals and special offers.',
+    PLACEHOLDER: 'Enter your email',
+    BUTTON: 'Join',
     // Not connected to a database yet, so the site says honestly that nothing is saved.
     MSG: 'Sign-ups open soon. Your email was not saved.'
   },
   COLUMNS: [
     { title: 'Shop', links: [
-      { label: 'All products', href: 'shop.html' },
-      { label: 'Handbags',     href: 'shop.html?cat=handbags' },
-      { label: 'Gadgets',      href: 'shop.html?cat=gadgets' },
-      { label: 'Home',         href: 'shop.html?cat=home' }
+      { label: 'All products',       href: 'shop.html' },
+      { label: 'Handbags',           href: 'shop.html?cat=handbags' },
+      { label: 'Gadgets',            href: 'shop.html?cat=gadgets' },
+      { label: 'Home',               href: 'shop.html?cat=home' },
+      { label: 'New drops & offers', href: 'index.html#join' }   // jumps to the sign-up strip on the home page
     ] },
     { title: 'Customer care', links: [
       { label: 'Contact us',         href: 'mailto:' + window.ZINAN.EMAIL },
