@@ -279,7 +279,6 @@ html { scroll-padding-top: 72px; }   /* the "New drops" link lands below the sti
 @media (max-width: 759px) {
   .nl-strip { padding: 18px 0; }
   .nl { gap: 12px; }
-  .nl .eyebrow { display: none; }
   .nl h2 { font-size: 18px; margin: 0 0 2px; }
   .nl-text { font-size: 13.5px; line-height: 1.45; }
   .nl-row .input, .nl-row .btn { min-height: 44px; }
