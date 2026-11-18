@@ -124,7 +124,7 @@ async function initCart() {
     });
 
     host.replaceChildren(
-      gone.length ? el('p', { class: 'notice', role: 'status' }, 'Some items are no longer available and were removed.') : null,
+      gone.length ? el('p', { class: 'notice', role: 'status' }, 'Some items are no longer available and were removed.') : el('span'),
       el('ul', { class: 'lines' }, lines),
       el('div', { class: 'totals' },
         el('div', { class: 'tot-row' }, el('span', null, 'Subtotal'), el('span', null, money(total))),
