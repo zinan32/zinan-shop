@@ -4,34 +4,16 @@
    touching the others.
    ===================================================== */
 
-/* ---------- SECTION 1: HOME ---------- */
-function fillHomeText() {
-  document.querySelectorAll('[data-cfg]').forEach(n => { n.textContent = Z[n.dataset.cfg] || ''; });
-  document.getElementById('trust-strip').replaceChildren(...Z.TRUST.map(t => el('li', null, t)));
-  document.getElementById('values').replaceChildren(...Z.WHY_VALUES.map(v =>
-    el('div', null, el('h3', null, v.title), el('p', null, v.text))));
-  document.getElementById('tags').replaceChildren(...[1, 2, 3, 4].map(() =>
-    el('div', { class: 'ph', role: 'img', 'aria-label': 'Customer photo placeholder' }, Z.TAGUS_NOTE)));
-  const f = document.getElementById('follow-link');
-  f.href = 'https://instagram.com/' + Z.INSTAGRAM;
-  f.textContent = 'Follow @' + Z.INSTAGRAM;
-}
-
-async function initHome() {
-  fillHomeText();
-  const host = document.getElementById('featured');
-  try { renderGrid(host, (await getProducts()).slice(0, 4)); }
-  catch (e) { showMessage(host, Z.MSG_LOAD_ERROR); }
-}
-
-/* ---------- SECTION 2: SHOP (browse) ---------- */
+/* ===== SECTION 2: SHOP (browse) · START ===== */
 async function initShop() {
   const host = document.getElementById('grid');
   try { renderGrid(host, await getProducts()); }
   catch (e) { showMessage(host, Z.MSG_LOAD_ERROR); }
 }
 
-/* ---------- SECTION 3: PRODUCT DETAIL ---------- */
+/* ===== SECTION 2: SHOP (browse) · END ===== */
+
+/* ===== SECTION 3: PRODUCT DETAIL · START ===== */
 async function initProduct() {
   const host = document.getElementById('product');
   const id = new URLSearchParams(location.search).get('id') || '';
@@ -87,7 +69,9 @@ function buildTabs(p) {
   return el('div', { class: 'tabs-wrap' }, tabs, panel);
 }
 
-/* ---------- SECTION 4: CART PAGE ---------- */
+/* ===== SECTION 3: PRODUCT DETAIL · END ===== */
+
+/* ===== SECTION 4: CART PAGE · START ===== */
 async function initCart() {
   const host = document.getElementById('cart');
   async function draw() {
@@ -137,11 +121,15 @@ async function initCart() {
   draw();
 }
 
-/* ---------- SECTION 5: START ---------- */
+/* ===== SECTION 4: CART PAGE · END ===== */
+
+/* ===== SECTION 5: START · START ===== */
 document.addEventListener('DOMContentLoaded', () => {
   renderHeader();
   renderFooter();
-  const pages = { home: initHome, shop: initShop, product: initProduct, cart: initCart };
+  const pages = { shop: initShop, product: initProduct, cart: initCart };
   const run = pages[document.body.dataset.page];
   if (run) run();
 });
+
+/* ===== SECTION 5: START · END ===== */
