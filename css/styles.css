@@ -286,3 +286,12 @@ html { scroll-padding-top: 72px; }   /* the "New drops" link lands below the sti
   .nl-status { margin-top: 6px; }
 }
 /* ===== SECTION 19: SLIM SIGN-UP STRIP ON PHONES · END ===== */
+
+/* ===== SECTION 20: PRODUCT PAGE SIDEWAYS-SCROLL FIX · START =====
+   Paste at the very bottom of css/styles.css (below Section 19). */
+.product { grid-template-columns: minmax(0, 1fr); }  /* the row of tabs was forcing the page wider than a 360px phone */
+.gallery, .detail { min-width: 0; }
+@media (min-width: 760px) {
+  .product { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+/* ===== SECTION 20: PRODUCT PAGE SIDEWAYS-SCROLL FIX · END ===== */
